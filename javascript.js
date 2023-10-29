@@ -82,8 +82,9 @@ Create if statement to account for 5 ties in a row.
 let roundNumber = 1;
 
 function game() {
-    while(roundNumber < 6)
-    console.log(roundNumber);
-    console.log (playRound(playerSelection, computerSelection));
-    roundNumber ++;
-}
+    for(let roundNumber =1; roundNumber < 6; roundNumber++)
+    console.log("Round: " + roundNumber);
+    console.log (playRound());
+};
+
+game();
