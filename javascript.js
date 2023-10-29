@@ -70,4 +70,9 @@ function playRound(playerSelection, computerSelection) {
 /*Write a new function called game(). Use the previous function
 inside of this one to play a 5-round game that keeps a score and
 reports a winner or loser at the end.
+Create variable roundNumber and set it equal to 0.
+In game(), create while loop that runs until roundNumber = 5.
+Console.log the results of each round and the current roundNumber.
+After round 5, Console.log the winner.
+Create if statement to account for 5 ties in a row.
 */
