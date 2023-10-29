@@ -21,7 +21,7 @@ function getComputerChoice() {
    else {
     return "scissors";
    }
-};
+}
 
 
 /* Write a function that plays a single round of rock paper scissors.
@@ -35,15 +35,17 @@ Return a string that declares the winner by using an if else or swith for the
 various win/lose possibilities.
 "You lose! Paper beats Rock" etc.*/
     
-let playerSelection = prompt("Rock, Paper, or Scissors?"); 
-playerSelection = playerSelection.toLowerCase();
+function getPlayerChoice() {
+    let answer = prompt("Rock, Paper, or Scissors?");
+    answer = answer.toLowerCase();
+    for(;answer !=="rock" && answer !=="paper" && answer !== "scissors";) {
+        answer = prompt("Invalid choice. Please choose rock, paper, or scissors.");
+        answer = answer.toLowerCase();
+    };
+    return answer;
+}
 
-for(;playerSelection !=="rock" && playerSelection !=="paper" && playerSelection !== "scissors";) {
-    playerSelection = prompt("Invalid choice. Please choose rock, paper, or scissors.");
-    playerSelection = playerSelection.toLowerCase();
-};
 
-computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection === computerSelection) {
@@ -67,7 +69,7 @@ function playRound(playerSelection, computerSelection) {
     else {
         return "Rock beats scissors. You lose :(";
     }
-};
+}
 
 /*Write a new function called game(). Use the previous function
 inside of this one to play a 5-round game that keeps a score and
@@ -79,12 +81,14 @@ After round 5, Console.log the winner.
 Create if statement to account for 5 ties in a row.
 */
 
-let roundNumber = 1;
-
 function game() {
-    for(let roundNumber =1; roundNumber < 6; roundNumber++)
-    console.log("Round: " + roundNumber);
-    console.log (playRound());
-};
+    for(let roundNumber =1; roundNumber < 6; roundNumber++) {
+        console.log("Round: " + roundNumber);
+        let playerSelection = getPlayerChoice();
+        let computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    
+}
 
-game();
+game(); 
