@@ -34,11 +34,9 @@ Set computerSelection equal to the output of getComputerChoice.
 Return a string that declares the winner by using an if else or swith for the
 various win/lose possibilities.
 "You lose! Paper beats Rock" etc.*/
-
-function getPlayerChoice() {
-    prompt("Rock, Paper, or Scissors?");
-} 
-playerSelection = getPlayerChoice().toLowerCase();
+    
+let playerSelection = prompt("Rock, Paper, or Scissors?"); 
+playerSelection = playerSelection.toLowerCase();
 
 for(;playerSelection !=="rock" && playerSelection !=="paper" && playerSelection !== "scissors";) {
     prompt("Invalid choice. Please choose rock, paper, or scissors.");
@@ -85,6 +83,6 @@ let roundNumber = 1;
 function game() {
     while(roundNumber < 6)
     console.log(roundNumber);
-    playRound();
+    console.log (playRound(playerSelection, computerSelection));
     roundNumber ++;
 }
