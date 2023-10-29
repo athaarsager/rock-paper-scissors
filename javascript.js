@@ -7,6 +7,8 @@ then create function that uses Math.Random() *10 plus math.floor
 to generate a number "i" between 0 and 9. If 0, re-generate, if 1-3, pick rock, if 3-5 pick paper,
 if 6-9, pick scissors. return the output to getComputerChoice*/
 
+let score = 0;
+
 function getComputerChoice() {
    let i = Math.floor(Math.random()*10);
    for (;i===0;) {
