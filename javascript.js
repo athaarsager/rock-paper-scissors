@@ -40,6 +40,7 @@ playerSelection = playerSelection.toLowerCase();
 
 for(;playerSelection !=="rock" && playerSelection !=="paper" && playerSelection !== "scissors";) {
     prompt("Invalid choice. Please choose rock, paper, or scissors.");
+    //needs to re-evaluate playerSelection here
 };
 
 computerSelection = getComputerChoice();
