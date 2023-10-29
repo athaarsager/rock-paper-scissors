@@ -28,7 +28,8 @@ function getComputerChoice() {
 The function should take two parameters-the playerSelection and 
 computerSelection. 
 Create variable playerSelection that prompts the user to enter rock, paper, or scissors.
-set playerSelection to lowercase.
+set playerSelection to lowercase. Create for loop to display error message
+if player does not enter rock, paper, or scissors.
 Set computerSelection equal to the output of getComputerChoice.
 Return a string that declares the winner by using an if else or swith for the
 various win/lose possibilities.
@@ -36,10 +37,11 @@ various win/lose possibilities.
 
 let playerSelection = prompt("Rock, Paper, or Scissors?");
 playerSelection = playerSelection.toLowerCase();
+for(;playerSelection !=="rock" && playerSelection !=="paper" && playerSelection !== "scissors";) {
+    prompt("Invalid choice. Please choose rock, paper, or scissors.");
+};
 
 computerSelection = getComputerChoice();
-
-
 
 
 
