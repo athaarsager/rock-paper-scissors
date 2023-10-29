@@ -27,14 +27,20 @@ function getComputerChoice() {
 /* Write a function that plays a single round of rock paper scissors.
 The function should take two parameters-the playerSelection and 
 computerSelection. 
-Create function getPlayerChoice that prompts the player to input their choice
-of rock, paper, or scissors.
-Set playerSelection equal to the output of getPlayerChoice.
+Create variable playerSelection that prompts the user to enter rock, paper, or scissors.
+set playerSelection to lowercase.
 Set computerSelection equal to the output of getComputerChoice.
 Return a string that declares the winner by using an if else or swith for the
 various win/lose possibilities.
-"You lose! Paper beats Rock" etc.
---make parameter case-insensitive */
+"You lose! Paper beats Rock" etc.*/
+
+let playerSelection = prompt("Rock, Paper, or Scissors?");
+playerSelection = playerselection.toLowerCase();
+
+computerSelection = getComputerChoice();
+
+
+
 
 
 /*Write a new function called game(). Use the previous function
