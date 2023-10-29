@@ -43,7 +43,29 @@ for(;playerSelection !=="rock" && playerSelection !=="paper" && playerSelection 
 
 computerSelection = getComputerChoice();
 
-
+function playRound(playerSelection, computerSelection) {
+    if(playerSelection === computerSelection) {
+        return "It's a tie!";
+    }
+    else if (playerSelection === "rock" && computerSelection === "scissors") {
+        return "Rock beats scissors. You win!";
+    }
+    else if (playerSelection === "rock" && computerSelection === "paper") {
+        return "Paper beats rock. You lose :(";
+    }
+    else if (playerSelection === "paper" && computerSelection === "rock") {
+        return "Paper beats rock. You win!";
+    }
+    else if(playerSelection === "paper" && computerSelection === "scissors") {
+        return "Scissors beats paper. You lose :(";
+    }
+    else if (playerSelection === "scissors" && computerSelection === "paper") {
+        return "Scissors beats paper. You win!";
+    }
+    else {
+        return "Rock beats scissors. You lose :(";
+    }
+}
 
 /*Write a new function called game(). Use the previous function
 inside of this one to play a 5-round game that keeps a score and
