@@ -65,7 +65,7 @@ function playRound(playerSelection, computerSelection) {
     else {
         return "Rock beats scissors. You lose :(";
     }
-}
+};
 
 /*Write a new function called game(). Use the previous function
 inside of this one to play a 5-round game that keeps a score and
