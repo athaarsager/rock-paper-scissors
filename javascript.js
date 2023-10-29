@@ -26,9 +26,16 @@ function getComputerChoice() {
 
 /* Write a function that plays a single round of rock paper scissors.
 The function should take two parameters-the playerSelection and 
-computerSelection. Return a string that declares the winner
+computerSelection. 
+Create function getPlayerChoice that prompts the player to input their choice
+of rock, paper, or scissors.
+Set playerSelection equal to the output of getPlayerChoice.
+Set computerSelection equal to the output of getComputerChoice.
+Return a string that declares the winner by using an if else or swith for the
+various win/lose possibilities.
 "You lose! Paper beats Rock" etc.
 --make parameter case-insensitive */
+
 
 /*Write a new function called game(). Use the previous function
 inside of this one to play a 5-round game that keeps a score and
