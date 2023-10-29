@@ -39,8 +39,8 @@ let playerSelection = prompt("Rock, Paper, or Scissors?");
 playerSelection = playerSelection.toLowerCase();
 
 for(;playerSelection !=="rock" && playerSelection !=="paper" && playerSelection !== "scissors";) {
-    prompt("Invalid choice. Please choose rock, paper, or scissors.");
-    //needs to re-evaluate playerSelection here
+    playerSelection = prompt("Invalid choice. Please choose rock, paper, or scissors.");
+    playerSelection = playerSelection.toLowerCase();
 };
 
 computerSelection = getComputerChoice();
