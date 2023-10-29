@@ -35,7 +35,7 @@ various win/lose possibilities.
 "You lose! Paper beats Rock" etc.*/
 
 let playerSelection = prompt("Rock, Paper, or Scissors?");
-playerSelection = playerselection.toLowerCase();
+playerSelection = playerSelection.toLowerCase();
 
 computerSelection = getComputerChoice();
 
