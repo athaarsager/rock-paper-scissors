@@ -7,7 +7,8 @@ then create function that uses Math.Random() *10 plus math.floor
 to generate a number "i" between 0 and 9. If 0, re-generate, if 1-3, pick rock, if 3-5 pick paper,
 if 6-9, pick scissors. return the output to getComputerChoice*/
 
-let score = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
    let i = Math.floor(Math.random()*10);
@@ -54,24 +55,27 @@ function playRound(playerSelection, computerSelection) {
         return "It's a tie!";
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
-        score++;
+        playerScore++;
         return "Rock beats scissors. You win!";
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
+        computerScore++;
         return "Paper beats rock. You lose :(";
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
-        score++;
+        playerScore++;
         return "Paper beats rock. You win!";
     }
     else if(playerSelection === "paper" && computerSelection === "scissors") {
+        computerScore++;
         return "Scissors beats paper. You lose :(";
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
-        score++;
+        playerScore++;
         return "Scissors beats paper. You win!";
     }
     else {
+        computerScore++;
         return "Rock beats scissors. You lose :(";
     }
 }
@@ -93,7 +97,15 @@ function game() {
         let computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
     }
-    console.log("You won " + score + "/5 rounds!");
+    if(playerScore>computerScore) {
+        console.log("You win! Total rounds won: " + playerScore + "/5 rounds!");
+    }
+    else if(playerScore<computerScore) {
+        console.log("You lose... Total rounds won: " + playerScore + "/5 rounds.");
+    }
+    else if(playerScore===computerScore) {
+        console.log("Wow, you tied! What are the odds? Total rounds won: " + playerScore + "/5 rounds.");
+    }
 }
 
 game(); 
