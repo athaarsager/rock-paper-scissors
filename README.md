@@ -1,0 +1,1 @@
+This project is a basic rock-paper-scissors game the player can play against the computer. There are 5 rounds in total with a final winner declared at the end. There are currently no UI elements on this project--it is played solely in the Console. This project demonstrates a basic understanding of javaScript functions, if else statements, and loops.
