@@ -47,8 +47,23 @@ scissorsButton.addEventListener("click", playScissors);
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+    button.addEventListener("click", scoreTally);
+});
+
+function playRock() {
+    playRound("rock", getComputerChoice());
+}
+
+function playPaper() {
+    playRound("paper", getComputerChoice());
+}
+
+function playScissors() {
+    playRound("scissors", getComputerChoice());
+}
+
+function scoreTally() {
+    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
         computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
         roundDisplay.textContent = `Round: ${roundNumber}`;
 
@@ -72,21 +87,21 @@ buttons.forEach((button) => {
 
             scissorsButton.removeEventListener("click", playScissors);
             
-        }
-        
-    });
-});
+            let replayText = document.createElement("h2");
+            replayText.textContent = "Do you want to replay?";
+            resultsContainer.appendChild(replayText);
 
-function playRock() {
-    playRound("rock", getComputerChoice());
-}
-
-function playPaper() {
-    playRound("paper", getComputerChoice());
-}
-
-function playScissors() {
-    playRound("scissors", getComputerChoice());
+            let yesButton = document.createElement("button");
+            yesButton.textContent = "Yes";
+            resultsContainer.appendChild(yesButton);
+            yesButton.addEventListener("click", () => {
+                location.reload();
+            });
+            
+            buttons.forEach((button) => {
+            button.removeEventListener("click", scoreTally)
+            });
+        }  
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -132,7 +147,6 @@ function playRound(playerSelection, computerSelection) {
         resultsContainer.appendChild(resultDisplay);
     
     }
-    
     
 }
 
