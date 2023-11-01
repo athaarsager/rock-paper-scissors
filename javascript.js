@@ -58,7 +58,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
+/*function game() {
     for(let roundNumber =1; roundNumber < 6; roundNumber++) {
         console.log("Round: " + roundNumber);
         let playerSelection = getPlayerChoice();
@@ -76,4 +76,4 @@ function game() {
     }
 }
 
-game(); 
+game(); */
