@@ -72,17 +72,35 @@ const resultsContainer = document.querySelector("#results");
 function game() {
     for(let roundNumber =1; roundNumber < 6; roundNumber++) {
         //console.log("Round: " + roundNumber);
-        let playerSelection = getPlayerChoice();
+        let roundDisplay = document.createElement("p");
+        roundDisplay.textContent = `Round: ${roundNumber}`;
+        resultsContainer.appendChild(roundDisplay);
+
+        //let playerSelection = getPlayerChoice();
         let computerSelection = getComputerChoice();
+
+        let resultDisplay = document.createElement("p");
+        resultDisplay.textContent = `${playRound(playerSelection, computerSelection)}`;
+        resultsContainer.appendChild(resultDisplay);
+        
         //console.log(playRound(playerSelection, computerSelection));
     }
     if(playerScore>computerScore) {
+        let winMessage = document.createElement("p");
+        winMessage.textContent = `You Win! Total rounds won: ${playerScore}/5 rounds!`;
+        resultsContainer.appendChild(winMessage);
         //console.log("You win! Total rounds won: " + playerScore + "/5 rounds!");
     }
     else if(playerScore<computerScore) {
+        let loseMessage = document.createElement("p");
+        loseMessage.textContent = `You lose...Total rounds won: ${playerScore}/5 rounds.`;
+        resultsContainer.appendChild(loseMessage);
         //console.log("You lose... Total rounds won: " + playerScore + "/5 rounds.");
     }
     else if(playerScore===computerScore) {
+        let tieMessage = document.createElement("p");
+        tieMessage.textContent = `Wow, you tied! What are the odds? Total rounds won: ${playerScore}/5 rounds.`;
+        resultsContainer.appendChild(tieMessage);
         //console.log("Wow, you tied! What are the odds? Total rounds won: " + playerScore + "/5 rounds.");
     }
 }
