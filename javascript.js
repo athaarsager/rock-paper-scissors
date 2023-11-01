@@ -31,6 +31,16 @@ function getComputerChoice() {
 
 let resultDisplay = document.createElement("p");
 
+const resultsContainer = document.querySelector("#results");
+
+let playerScoreDisplay = document.createElement("h3");
+playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+resultsContainer.appendChild(playerScoreDisplay);
+
+let computerScoreDisplay = document.createElement("h3");
+computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+resultsContainer.appendChild(computerScoreDisplay);
+
 const rockButton = document.querySelector("#rButton");
 rockButton.addEventListener("click", () => 
     {playRound("rock", getComputerChoice());});
@@ -43,15 +53,13 @@ const scissorsButton = document.querySelector("#sButton");
 scissorsButton.addEventListener("click", () => 
     {playRound("scissors", getComputerChoice());});
 
-const resultsContainer = document.querySelector("#results");
-
-let playerScoreDisplay = document.createElement("h3");
-playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
-resultsContainer.appendChild(playerScoreDisplay);
-
-let computerScoreDisplay = document.createElement("h3");
-computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
-resultsContainer.appendChild(computerScoreDisplay);
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+        computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+    });
+});
 
 
 function playRound(playerSelection, computerSelection) {
