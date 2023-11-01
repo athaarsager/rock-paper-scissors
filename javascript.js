@@ -86,6 +86,7 @@ function playRound(playerSelection, computerSelection) {
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
         roundNumber++;
+        playerScore++;
         resultDisplay.textContent = `Round ${roundNumber}: Scissors beats paper. You win!`;
         resultsContainer.appendChild(resultDisplay);
     }
