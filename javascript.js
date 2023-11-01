@@ -37,19 +37,16 @@ roundDisplay.textContent = `Round: `;
 resultsContainer.appendChild(roundDisplay);
 
 const rockButton = document.querySelector("#rButton");
-rockButton.addEventListener("click", () => 
-    {playRound("rock", getComputerChoice());});
+rockButton.addEventListener("click", playRock);
 
 const paperButton = document.querySelector("#pButton");
-paperButton.addEventListener("click", () => 
-    {playRound("paper", getComputerChoice());});
+paperButton.addEventListener("click", playPaper);
 
 const scissorsButton = document.querySelector("#sButton");
-scissorsButton.addEventListener("click", () => 
-    {playRound("scissors", getComputerChoice());});
+scissorsButton.addEventListener("click", playScissors);
 
 const buttons = document.querySelectorAll("button");
-    buttons.forEach((button) => {
+buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
         computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
@@ -69,20 +66,28 @@ const buttons = document.querySelectorAll("button");
                 finalOutcome.textContent = `Wow, you tied! What are the odds? Total rounds won: ${playerScore}/5 rounds.`;
                 resultsContainer.appendChild(finalOutcome);
             }
-            rockButton.removeEventListener("click", () => {
-                {playRound("rock", getComputerChoice());}
-            });
-            paperButton.removeEventListener("click", () => {
-                {playRound("paper", getComputerChoice());}
-            });
-            scissorsButton.removeEventListener("click", () => {
-                {playRound("scissors", getComputerChoice());}
-            });
+            rockButton.removeEventListener("click", playRock);
+
+            paperButton.removeEventListener("click", playPaper);
+
+            scissorsButton.removeEventListener("click", playScissors);
+            
         }
         
-         });
     });
+});
 
+function playRock() {
+    playRound("rock", getComputerChoice());
+}
+
+function playPaper() {
+    playRound("paper", getComputerChoice());
+}
+
+function playScissors() {
+    playRound("scissors", getComputerChoice());
+}
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection === computerSelection) {
