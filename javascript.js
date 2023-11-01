@@ -58,6 +58,15 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+const rockButton = document.querySelector("#rButton");
+rockButton.addEventListener("click", playRound(rock, computerSelection));
+
+const paperButton = document.querySelector("#pButton");
+paperButton.addEventListener("click", playRound(paper, computerSelection));
+
+const scissorsButton = document.querySelector("#sButton");
+scissorsButton.addEventListener("click", playRound(scissors, computerSelection));
+
 /*function game() {
     for(let roundNumber =1; roundNumber < 6; roundNumber++) {
         console.log("Round: " + roundNumber);
