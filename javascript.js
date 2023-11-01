@@ -18,7 +18,7 @@ function getComputerChoice() {
 }
 
     
-function getPlayerChoice() {
+/*function getPlayerChoice() {
     let answer = prompt("Rock, Paper, or Scissors?");
     answer = answer.toLowerCase();
     for(;answer !=="rock" && answer !=="paper" && answer !== "scissors";) {
@@ -26,33 +26,42 @@ function getPlayerChoice() {
         answer = answer.toLowerCase();
     };
     return answer;
-}
+} */
 
 function playRound(playerSelection, computerSelection) {
+    let roundNumber = 1;
+    computerSelection = getComputerChoice();
     if(playerSelection === computerSelection) {
+        roundNumber++;
         return "It's a tie!";
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
+        roundNumber++;
         playerScore++;
         return "Rock beats scissors. You win!";
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
+        roundNumber++;
         computerScore++;
         return "Paper beats rock. You lose :(";
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
+        roundNumber++
         playerScore++;
         return "Paper beats rock. You win!";
     }
     else if(playerSelection === "paper" && computerSelection === "scissors") {
+        roundNumber++;
         computerScore++;
         return "Scissors beats paper. You lose :(";
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
+        roundNumber++;
         playerScore++;
         return "Scissors beats paper. You win!";
     }
     else {
+        roundNumber++;
         computerScore++;
         return "Rock beats scissors. You lose :(";
     }
@@ -77,7 +86,7 @@ function game() {
         resultsContainer.appendChild(roundDisplay);
 
         //let playerSelection = getPlayerChoice();
-        let computerSelection = getComputerChoice();
+        //let computerSelection = getComputerChoice();
 
         let resultDisplay = document.createElement("p");
         resultDisplay.textContent = `${playRound(playerSelection, computerSelection)}`;
