@@ -1,5 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
+let roundNumber = 0;
 
 function getComputerChoice() {
    let i = Math.floor(Math.random()*10);
@@ -28,17 +29,17 @@ function getComputerChoice() {
     return answer;
 } */
 
-let roundNumber = 0;
-
 const rockButton = document.querySelector("#rButton");
-rockButton.addEventListener("click", roundResult(playRound(rock, computerSelection)));
-
+rockButton.addEventListener("click", () => 
+{playRound("rock", computerSelection)});
 
 const paperButton = document.querySelector("#pButton");
-paperButton.addEventListener("click", roundResult(playRound(paper, computerSelection)));
+paperButton.addEventListener("click", () => 
+{playRound("paper", computerSelection)});
 
 const scissorsButton = document.querySelector("#sButton");
-scissorsButton.addEventListener("click", roundResult(playRound(scissors, computerSelection)));
+scissorsButton.addEventListener("click", () => 
+{playRound("scissors", computerSelection)});
 
 const resultsContainer = document.querySelector("#results");
 
@@ -50,42 +51,40 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
     if(playerSelection === computerSelection) {
         roundNumber++;
-        return "It's a tie!";
+        alert("It's a tie!");
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
         roundNumber++;
         playerScore++;
-        return "Rock beats scissors. You win!";
+        alert("Rock beats scissors. You win!");
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
         roundNumber++;
         computerScore++;
-        return "Paper beats rock. You lose :(";
+        alert("Paper beats rock. You lose :(");
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
         roundNumber++
         playerScore++;
-        return "Paper beats rock. You win!";
+        alert("Paper beats rock. You win!");
     }
     else if(playerSelection === "paper" && computerSelection === "scissors") {
         roundNumber++;
         computerScore++;
-        return "Scissors beats paper. You lose :(";
+        alert("Scissors beats paper. You lose :(");
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
         roundNumber++;
-        playerScore++;
-        return "Scissors beats paper. You win!";
+        alert("Scissors beats paper. You win!");
     }
     else {
         roundNumber++;
         computerScore++;
-        return "Rock beats scissors. You lose :(";
+        alert("Rock beats scissors. You lose :(");
     }
 }
 
-function roundResult(playRound) {
-    
+/* function roundResult(playRound) {
         let resultDisplay = document.createElement("p");
         resultDisplay.textContent = `${playRound(playerSelection, computerSelection)}`;
         resultsContainer.appendChild(resultDisplay);
@@ -110,5 +109,5 @@ function roundResult(playRound) {
         resultsContainer.appendChild(tieMessage);
         //console.log("Wow, you tied! What are the odds? Total rounds won: " + playerScore + "/5 rounds.");
     }
-}
+} */
 
