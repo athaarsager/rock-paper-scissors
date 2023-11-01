@@ -67,11 +67,11 @@ const buttons = document.querySelectorAll("button");
         roundDisplay.textContent = `Round: ${roundNumber}`;
 
         if(roundNumber === 5) {
+            
             if(playerScore > computerScore) {
                 finalOutcome.textContent = `You Win! Total rounds won: ${playerScore}/5 rounds!`;
                 resultsContainer.appendChild(finalOutcome);
             }
-
             else if(playerScore < computerScore) {
                 finalOutcome.textContent = `You lose...Total rounds won: ${playerScore}/5 rounds.`;
                 resultsContainer.appendChild(finalOutcome);
@@ -80,6 +80,15 @@ const buttons = document.querySelectorAll("button");
                 finalOutcome.textContent = `Wow, you tied! What are the odds? Total rounds won: ${playerScore}/5 rounds.`;
                 resultsContainer.appendChild(finalOutcome);
             }
+            rockButton.removeEventListener("click", () => {
+                {playRound("rock", getComputerChoice());}
+            });
+            paperButton.removeEventListener("click", () => {
+                {playRound("paper", getComputerChoice());}
+            });
+            scissorsButton.removeEventListener("click", () => {
+                {playRound("scissors", getComputerChoice());}
+            });
         }
         
          });
@@ -132,30 +141,4 @@ function playRound(playerSelection, computerSelection) {
     
     
 }
-
-/*function roundResult(playRound) {
-       
-        
-        
-        //console.log(playRound(playerSelection, computerSelection));
-    
-    if(playerScore>computerScore) {
-        let winMessage = document.createElement("p");
-        winMessage.textContent = `You Win! Total rounds won: ${playerScore}/5 rounds!`;
-        resultsContainer.appendChild(winMessage);
-        //console.log("You win! Total rounds won: " + playerScore + "/5 rounds!");
-    }
-    else if(playerScore<computerScore) {
-        let loseMessage = document.createElement("p");
-        loseMessage.textContent = `You lose...Total rounds won: ${playerScore}/5 rounds.`;
-        resultsContainer.appendChild(loseMessage);
-        //console.log("You lose... Total rounds won: " + playerScore + "/5 rounds.");
-    }
-    else if(playerScore===computerScore) {
-        let tieMessage = document.createElement("p");
-        tieMessage.textContent = `Wow, you tied! What are the odds? Total rounds won: ${playerScore}/5 rounds.`;
-        resultsContainer.appendChild(tieMessage);
-        //console.log("Wow, you tied! What are the odds? Total rounds won: " + playerScore + "/5 rounds.");
-    }
-} */
 
