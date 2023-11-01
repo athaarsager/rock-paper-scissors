@@ -31,15 +31,15 @@ function getComputerChoice() {
 
 const rockButton = document.querySelector("#rButton");
 rockButton.addEventListener("click", () => 
-{playRound("rock", computerSelection)});
+{playRound("rock", getComputerChoice());});
 
 const paperButton = document.querySelector("#pButton");
 paperButton.addEventListener("click", () => 
-{playRound("paper", computerSelection)});
+{playRound("paper", getComputerChoice());});
 
 const scissorsButton = document.querySelector("#sButton");
 scissorsButton.addEventListener("click", () => 
-{playRound("scissors", computerSelection)});
+{playRound("scissors", getComputerChoice());});
 
 const resultsContainer = document.querySelector("#results");
 
@@ -48,40 +48,42 @@ roundDisplay.textContent = `Round: ${roundNumber}`;
 resultsContainer.appendChild(roundDisplay);
 
 function playRound(playerSelection, computerSelection) {
-    computerSelection = getComputerChoice();
     if(playerSelection === computerSelection) {
         roundNumber++;
-        alert("It's a tie!");
+        console.log("It's a tie!");
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
         roundNumber++;
         playerScore++;
-        alert("Rock beats scissors. You win!");
+        console.log("Rock beats scissors. You win!");
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
         roundNumber++;
         computerScore++;
-        alert("Paper beats rock. You lose :(");
+        console.log("Paper beats rock. You lose :(");
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
         roundNumber++
         playerScore++;
-        alert("Paper beats rock. You win!");
+        console.log("Paper beats rock. You win!");
     }
     else if(playerSelection === "paper" && computerSelection === "scissors") {
         roundNumber++;
         computerScore++;
-        alert("Scissors beats paper. You lose :(");
+        console.log("Scissors beats paper. You lose :(");
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
         roundNumber++;
-        alert("Scissors beats paper. You win!");
+        console.log("Scissors beats paper. You win!");
     }
     else {
         roundNumber++;
         computerScore++;
-        alert("Rock beats scissors. You lose :(");
+        console.log("Rock beats scissors. You lose :(");
+    
     }
+    
+    
 }
 
 /* function roundResult(playRound) {
