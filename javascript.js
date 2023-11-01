@@ -18,17 +18,6 @@ function getComputerChoice() {
    }
 }
 
-    
-/*function getPlayerChoice() {
-    let answer = prompt("Rock, Paper, or Scissors?");
-    answer = answer.toLowerCase();
-    for(;answer !=="rock" && answer !=="paper" && answer !== "scissors";) {
-        answer = prompt("Invalid choice. Please choose rock, paper, or scissors.");
-        answer = answer.toLowerCase();
-    };
-    return answer;
-} */
-
 const resultsContainer = document.querySelector("#results");
 
 let resultDisplay = document.createElement("p");
