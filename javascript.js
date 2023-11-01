@@ -45,9 +45,14 @@ scissorsButton.addEventListener("click", () =>
 
 const resultsContainer = document.querySelector("#results");
 
-let roundDisplay = document.createElement("p");
-roundDisplay.textContent = `Round: ${roundNumber}`;
-resultsContainer.appendChild(roundDisplay);
+let playerScoreDisplay = document.createElement("h3");
+playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+resultsContainer.appendChild(playerScoreDisplay);
+
+let computerScoreDisplay = document.createElement("h3");
+computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+resultsContainer.appendChild(computerScoreDisplay);
+
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection === computerSelection) {
@@ -64,7 +69,7 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection === "rock" && computerSelection === "paper") {
         roundNumber++;
         computerScore++;
-        resultDisplay.textContent = `Round ${roundNumber}: Paper beats rock. You lose :()`;
+        resultDisplay.textContent = `Round ${roundNumber}: Paper beats rock. You lose :(`;
         resultsContainer.appendChild(resultDisplay);
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
@@ -76,7 +81,7 @@ function playRound(playerSelection, computerSelection) {
     else if(playerSelection === "paper" && computerSelection === "scissors") {
         roundNumber++;
         computerScore++;
-        resultDisplay.textContent = `Round ${roundNumber}: Scissors beats paper. You lose :()`;
+        resultDisplay.textContent = `Round ${roundNumber}: Scissors beats paper. You lose :(`;
         resultsContainer.appendChild(resultDisplay);
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
