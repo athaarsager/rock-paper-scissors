@@ -41,6 +41,10 @@ let computerScoreDisplay = document.createElement("h3");
 computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
 resultsContainer.appendChild(computerScoreDisplay);
 
+let roundDisplay = document.createElement("h3");
+roundDisplay.textContent = `Round: `;
+resultsContainer.appendChild(roundDisplay);
+
 const rockButton = document.querySelector("#rButton");
 rockButton.addEventListener("click", () => 
     {playRound("rock", getComputerChoice());});
@@ -58,6 +62,7 @@ const buttons = document.querySelectorAll("button");
     button.addEventListener("click", () => {
         playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
         computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+        roundDisplay.textContent = `Round: ${roundNumber}`;
          });
     });
 
@@ -65,43 +70,43 @@ const buttons = document.querySelectorAll("button");
 function playRound(playerSelection, computerSelection) {
     if(playerSelection === computerSelection) {
         roundNumber++;
-        resultDisplay.textContent = `Round ${roundNumber}: It's a tie!`;
+        resultDisplay.textContent = `It's a tie!`;
         resultsContainer.appendChild(resultDisplay);
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
         roundNumber++;
         playerScore++;
-        resultDisplay.textContent = `Round ${roundNumber}: "Rock beats scissors. You win!`;
+        resultDisplay.textContent = `Rock beats scissors. You win!`;
         resultsContainer.appendChild(resultDisplay); 
     }
     else if (playerSelection === "rock" && computerSelection === "paper") {
         roundNumber++;
         computerScore++;
-        resultDisplay.textContent = `Round ${roundNumber}: Paper beats rock. You lose :(`;
+        resultDisplay.textContent = `Paper beats rock. You lose :(`;
         resultsContainer.appendChild(resultDisplay);
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
         roundNumber++
         playerScore++;
-        resultDisplay.textContent = `Round ${roundNumber}: Paper beats rock. You win!`;
+        resultDisplay.textContent = `Paper beats rock. You win!`;
         resultsContainer.appendChild(resultDisplay);
     }
     else if(playerSelection === "paper" && computerSelection === "scissors") {
         roundNumber++;
         computerScore++;
-        resultDisplay.textContent = `Round ${roundNumber}: Scissors beats paper. You lose :(`;
+        resultDisplay.textContent = `Scissors beats paper. You lose :(`;
         resultsContainer.appendChild(resultDisplay);
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
         roundNumber++;
         playerScore++;
-        resultDisplay.textContent = `Round ${roundNumber}: Scissors beats paper. You win!`;
+        resultDisplay.textContent = `Scissors beats paper. You win!`;
         resultsContainer.appendChild(resultDisplay);
     }
     else {
         roundNumber++;
         computerScore++;
-        resultDisplay.textContent = `Round ${roundNumber}: Rock beats scissors. You lose :(`;
+        resultDisplay.textContent = `Rock beats scissors. You lose :(`;
         resultsContainer.appendChild(resultDisplay);
     
     }
