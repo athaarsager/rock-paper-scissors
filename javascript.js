@@ -28,8 +28,25 @@ function getComputerChoice() {
     return answer;
 } */
 
+let roundNumber = 0;
+
+const rockButton = document.querySelector("#rButton");
+rockButton.addEventListener("click", roundResult(playRound(rock, computerSelection)));
+
+
+const paperButton = document.querySelector("#pButton");
+paperButton.addEventListener("click", roundResult(playRound(paper, computerSelection)));
+
+const scissorsButton = document.querySelector("#sButton");
+scissorsButton.addEventListener("click", roundResult(playRound(scissors, computerSelection)));
+
+const resultsContainer = document.querySelector("#results");
+
+let roundDisplay = document.createElement("p");
+roundDisplay.textContent = `Round: ${roundNumber}`;
+resultsContainer.appendChild(roundDisplay);
+
 function playRound(playerSelection, computerSelection) {
-    let roundNumber = 1;
     computerSelection = getComputerChoice();
     if(playerSelection === computerSelection) {
         roundNumber++;
@@ -67,33 +84,14 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const rockButton = document.querySelector("#rButton");
-rockButton.addEventListener("click", playRound(rock, computerSelection));
-
-const paperButton = document.querySelector("#pButton");
-paperButton.addEventListener("click", playRound(paper, computerSelection));
-
-const scissorsButton = document.querySelector("#sButton");
-scissorsButton.addEventListener("click", playRound(scissors, computerSelection));
-
-const resultsContainer = document.querySelector("#results");
-
-function game() {
-    for(let roundNumber =1; roundNumber < 6; roundNumber++) {
-        //console.log("Round: " + roundNumber);
-        let roundDisplay = document.createElement("p");
-        roundDisplay.textContent = `Round: ${roundNumber}`;
-        resultsContainer.appendChild(roundDisplay);
-
-        //let playerSelection = getPlayerChoice();
-        //let computerSelection = getComputerChoice();
-
+function roundResult(playRound) {
+    
         let resultDisplay = document.createElement("p");
         resultDisplay.textContent = `${playRound(playerSelection, computerSelection)}`;
         resultsContainer.appendChild(resultDisplay);
         
         //console.log(playRound(playerSelection, computerSelection));
-    }
+    
     if(playerScore>computerScore) {
         let winMessage = document.createElement("p");
         winMessage.textContent = `You Win! Total rounds won: ${playerScore}/5 rounds!`;
@@ -114,4 +112,3 @@ function game() {
     }
 }
 
-game(); 
