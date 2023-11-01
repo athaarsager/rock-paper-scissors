@@ -67,22 +67,24 @@ paperButton.addEventListener("click", playRound(paper, computerSelection));
 const scissorsButton = document.querySelector("#sButton");
 scissorsButton.addEventListener("click", playRound(scissors, computerSelection));
 
-/*function game() {
+const resultsContainer = document.querySelector("#results");
+
+function game() {
     for(let roundNumber =1; roundNumber < 6; roundNumber++) {
-        console.log("Round: " + roundNumber);
+        //console.log("Round: " + roundNumber);
         let playerSelection = getPlayerChoice();
         let computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
+        //console.log(playRound(playerSelection, computerSelection));
     }
     if(playerScore>computerScore) {
-        console.log("You win! Total rounds won: " + playerScore + "/5 rounds!");
+        //console.log("You win! Total rounds won: " + playerScore + "/5 rounds!");
     }
     else if(playerScore<computerScore) {
-        console.log("You lose... Total rounds won: " + playerScore + "/5 rounds.");
+        //console.log("You lose... Total rounds won: " + playerScore + "/5 rounds.");
     }
     else if(playerScore===computerScore) {
-        console.log("Wow, you tied! What are the odds? Total rounds won: " + playerScore + "/5 rounds.");
+        //console.log("Wow, you tied! What are the odds? Total rounds won: " + playerScore + "/5 rounds.");
     }
 }
 
-game(); */
+game(); 
