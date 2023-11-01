@@ -54,12 +54,12 @@ scissorsButton.addEventListener("click", () =>
     {playRound("scissors", getComputerChoice());});
 
 const buttons = document.querySelectorAll("button");
-buttons.forEach((button) => {
+    buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
         computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+         });
     });
-});
 
 
 function playRound(playerSelection, computerSelection) {
