@@ -29,9 +29,11 @@ function getComputerChoice() {
     return answer;
 } */
 
+const resultsContainer = document.querySelector("#results");
+
 let resultDisplay = document.createElement("p");
 
-const resultsContainer = document.querySelector("#results");
+let finalOutcome = document.createElement("h1");
 
 let playerScoreDisplay = document.createElement("h3");
 playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
@@ -63,6 +65,23 @@ const buttons = document.querySelectorAll("button");
         playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
         computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
         roundDisplay.textContent = `Round: ${roundNumber}`;
+
+        if(roundNumber === 5) {
+            if(playerScore > computerScore) {
+                finalOutcome.textContent = `You Win! Total rounds won: ${playerScore}/5 rounds!`;
+                resultsContainer.appendChild(finalOutcome);
+            }
+
+            else if(playerScore < computerScore) {
+                finalOutcome.textContent = `You lose...Total rounds won: ${playerScore}/5 rounds.`;
+                resultsContainer.appendChild(finalOutcome);
+            }
+            else if(playerScore === computerScore) {
+                finalOutcome.textContent = `Wow, you tied! What are the odds? Total rounds won: ${playerScore}/5 rounds.`;
+                resultsContainer.appendChild(finalOutcome);
+            }
+        }
+        
          });
     });
 
